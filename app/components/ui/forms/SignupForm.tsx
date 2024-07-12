@@ -4,16 +4,6 @@ import {registerUserAction} from "@/app/data/actions/auth-actions";
 import Link from "next/link";
 import {useFormState} from "react-dom";
 
-import {
-    CardTitle,
-    CardSubtitle,
-    CardHeader,
-    CardBody,
-    CardFooter,
-    Card,
-    Form, Button
-} from "react-bootstrap";
-
 export function SignupForm() {
     const INITIAL_STATE = {
         data: null,
@@ -21,8 +11,8 @@ export function SignupForm() {
     const [formState, formAction] = useFormState(registerUserAction, INITIAL_STATE);
     console.log(formState);
     return (
-
-        <Card className={"shadow-lg"}>
+<div>SignUp</div>
+        /*<Card className={"shadow-lg"}>
             <CardBody className="p-5">
                 <Card.Title className={"fs-4 fw-bold mb-4"}>Sign Up</Card.Title>
                 <Form action={formAction}>
@@ -60,7 +50,7 @@ export function SignupForm() {
                     Already have an account? <Link href={"/auth/signin"} className="text-dark">Sign in</Link>
                 </div>
             </CardFooter>
-        </Card>
+        </Card>*/
 
 
     );

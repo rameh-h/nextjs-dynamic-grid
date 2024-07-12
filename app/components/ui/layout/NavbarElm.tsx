@@ -1,11 +1,11 @@
 'use client'
 import React from 'react';
-import {Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
 import Link from "next/link";
 
 const NavbarElm = () => {
     return (
-        <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
+        <div>NavBar</div>
+        /*<Navbar bg="dark" variant="dark" expand="lg" sticky="top">
             <Container>
                 <Navbar.Brand>
                     <Link href={"/"} className={"navbar-brand"}>The App</Link>
@@ -29,7 +29,7 @@ const NavbarElm = () => {
                     </Nav>
                 </Navbar.Collapse>
             </Container>
-        </Navbar>
+        </Navbar>*/
     );
 };
 

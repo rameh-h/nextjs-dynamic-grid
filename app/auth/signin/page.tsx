@@ -1,5 +1,5 @@
-import { SigninForm } from "@/app/components/ui/forms/SigninForm";
+import { SigningForm } from "@/app/components/ui/forms/SigningForm";
 
 export default function SignInRoute() {
-  return <SigninForm />;
+  return <SigningForm />;
   }

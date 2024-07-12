@@ -2,17 +2,11 @@
 
 import Link from "next/link";
 
-import {
-    Card,
-    Form,
-    Row,
-    Button
-} from "react-bootstrap";
 
-
-export function SigninForm() {
+export function SigningForm() {
     return (
-        <Card className="shadow-lg">
+        <div>SigIn</div>
+        /*<Card className="shadow-lg">
             <Card.Body className="p-5">
                 <Card.Title className="fs-4 fw-bold mb-4">Login</Card.Title>
                 <Form>
@@ -47,6 +41,6 @@ export function SigninForm() {
                     Don't have an account? <Link href={"/auth/signup"} className="text-dark">Sign Up</Link>
                 </div>
             </Card.Footer>
-        </Card>
+        </Card>*/
     );
 }

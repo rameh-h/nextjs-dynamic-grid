@@ -1,6 +1,5 @@
 'use client'
 import React from 'react';
-import {Table} from "react-bootstrap";
 
 export default function GridComponent(model: GridModel) {
     const columns = model.columns.sort((a, b) => {
@@ -8,7 +7,8 @@ export default function GridComponent(model: GridModel) {
     });
     const data = model.data;
     return (
-        <Table striped hover responsive bordered>
+        <div>Table</div>
+     /*   <Table striped hover responsive bordered>
             <thead>
             <tr>
                 {columns.map((column) => (
@@ -16,6 +16,6 @@ export default function GridComponent(model: GridModel) {
                 ))}
             </tr>
             </thead>
-        </Table>
+        </Table>*/
     );
 };

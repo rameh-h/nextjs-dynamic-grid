@@ -8,7 +8,7 @@ export default function GridPage(){
 
     return (
         <div>
-            <GridComponent columns={} data={}/>
+            <GridComponent columns={[]} data={[]}/>
         </div>
     )
 }
