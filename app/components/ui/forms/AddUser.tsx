@@ -30,7 +30,7 @@ export default function AddUser(props: addUserPageProps) {
                         >
                             <DialogPanel
                                 className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 my-5
-                                pt-5 text-left shadow-xl transition-all md:w-full sm:w-full sm:max-w-fit sm:p-6 w-full">
+                                pt-5 text-left shadow-xl transition-all md:w-full sm:w-full sm:max-w-2xl sm:p-6 w-full">
 
                                 <form>
                                     <div className="space-y-12">
