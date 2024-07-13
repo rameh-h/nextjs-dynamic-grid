@@ -1,6 +1,6 @@
 import React, {Fragment} from "react";
-import {Dialog, DialogPanel, DialogTitle, Transition, TransitionChild} from "@headlessui/react";
-import {PhotoIcon, UserCircleIcon} from '@heroicons/react/24/solid'
+import {Dialog, DialogPanel, Transition, TransitionChild} from "@headlessui/react";
+import {PhotoIcon} from '@heroicons/react/24/solid'
 
 export default function AddUser(props: addUserPageProps) {
     return (
