@@ -29,11 +29,12 @@ export default function AddUser(props: addUserPageProps) {
                             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                         >
                             <DialogPanel
-                                className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all md:w-full sm:w-full sm:max-w-fit sm:p-6 w-full">
+                                className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 my-5
+                                pt-5 text-left shadow-xl transition-all md:w-full sm:w-full sm:max-w-fit sm:p-6 w-full">
 
                                 <form>
                                     <div className="space-y-12">
-                                        <div className="border-b border-gray-900/10 pb-12">
+                                        {/*<div className="border-b border-gray-900/10 pb-12">
                                             <h2 className="text-base font-semibold leading-7 text-gray-900">Profile</h2>
                                             <p className="mt-1 text-sm leading-6 text-gray-600">
                                                 This information will be displayed publicly so be careful what you
@@ -100,7 +101,7 @@ export default function AddUser(props: addUserPageProps) {
 
 
                                             </div>
-                                        </div>
+                                        </div>*/}
 
                                         <div className="border-b border-gray-900/10 pb-12">
                                             <h2 className="text-base font-semibold leading-7 text-gray-900">Personal
