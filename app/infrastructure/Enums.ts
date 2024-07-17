@@ -4,3 +4,12 @@ export enum EHttpMethod {
     PUT = 'PUT',
     DELETE = 'DELETE'
 }
+
+export enum ColumnType {
+    intType = 1,
+    stringType,
+    booleanType,
+    dateType,
+    listType,
+    imageType
+}

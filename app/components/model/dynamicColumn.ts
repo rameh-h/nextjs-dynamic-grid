@@ -1,9 +1,10 @@
-interface DynamicColumn {
+export interface DynamicColumn {
+    id: number;
     alias: string;
     displayName: string;
-    dynamicColumnId: number;
-    expression: string;
+    columnType: number;
     isHidden: boolean;
     isKey: boolean;
-    sequence: number;
+    isRequired: boolean;
+    sequence?: number;
 }

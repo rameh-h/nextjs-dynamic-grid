@@ -1,8 +1,6 @@
 import type {Metadata} from "next";
 import {Inter} from "next/font/google";
 import "./globals.css";
-import Sidebar from "@/app/components/ui/layout/Sidebar";
-
 
 const inter = Inter({subsets: ["latin"]});
 export const metadata: Metadata = {
@@ -18,10 +16,7 @@ export default function RootLayout({
     return (
         <html className={"h-full bg-white"} lang="en">
         <body className={inter.className + "h-full"}>
-        <Sidebar/>
-        <main className="py-10 lg:pl-72">
-            <div className="px-4 sm:px-6 lg:px-8">{children}</div>
-        </main>
+        {children}
         </body>
         </html>
     );

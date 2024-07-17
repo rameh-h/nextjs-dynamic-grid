@@ -1,5 +1,5 @@
 import { SignupForm } from "@/app/components/ui/forms/SignupForm";
 
-export default function SingUpRoute() {
+export default function SingUpPage() {
   return <SignupForm />;
   }

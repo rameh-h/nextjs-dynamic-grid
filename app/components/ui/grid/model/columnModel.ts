@@ -1,4 +1,4 @@
-interface ColumnModel {
+export interface ColumnModel {
     id: number;
     displayName: string;
     filed: string;
@@ -7,4 +7,5 @@ interface ColumnModel {
     columnTypeId: number;
     sequence: number;
     format?: string;
+    isCommand?:boolean;
 }

@@ -1,16 +1,14 @@
-'use client'
 import Link from "next/link";
 import GridPage from "@/app/dynamic-grid/page";
+import RootLayout from "@/app/layout";
+import AppLayout from "@/app/layout/appLayout";
 
 export default function Page() {
     return (
-        <div className="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
-            {/*<div className="px-4 py-5 sm:px-6">
-                Users of Application
-            </div>*/}
-            <div className="px-4 py-5 sm:p-6">
+        <RootLayout>
+            <AppLayout>
                 <GridPage/>
-            </div>
-        </div>
+            </AppLayout>
+        </RootLayout>
     )
 }

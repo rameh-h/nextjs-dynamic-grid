@@ -1,6 +1,7 @@
 import React, {Fragment} from "react";
 import {Dialog, DialogPanel, Transition, TransitionChild} from "@headlessui/react";
-import {PhotoIcon} from '@heroicons/react/24/solid'
+import ModalForm from "@/app/components/ui/grid/form/modalForm";
+import {DynamicColumn} from "@/app/components/model/dynamicColumn";
 
 export default function AddUser(props: addUserPageProps) {
     return (
@@ -18,7 +19,8 @@ export default function AddUser(props: addUserPageProps) {
                 </TransitionChild>
                 <div className="fixed inset-0 z-10 overflow-y-auto">
                     <div
-                        className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                        className="flex min-h-full items-end justify-center p-4 text-center sm:items-center
+                        sm:p-0 my-20 md:ml-52">
                         <TransitionChild
                             as={Fragment}
                             enter="ease-out duration-300"
@@ -26,83 +28,12 @@ export default function AddUser(props: addUserPageProps) {
                             enterTo="opacity-100 translate-y-0 sm:scale-100"
                             leave="ease-in duration-200"
                             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                            leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                        >
+                            leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
                             <DialogPanel
-                                className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 my-5
-                                pt-5 text-left shadow-xl transition-all md:w-full sm:w-full sm:max-w-2xl sm:p-6 w-full">
-
+                                className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4
+                                 text-left shadow-xl transition-all sm:w-full sm:max-w-3xl sm:p-6 ">
                                 <form>
-                                    <div className="space-y-12">
-                                        {/*<div className="border-b border-gray-900/10 pb-12">
-                                            <h2 className="text-base font-semibold leading-7 text-gray-900">Profile</h2>
-                                            <p className="mt-1 text-sm leading-6 text-gray-600">
-                                                This information will be displayed publicly so be careful what you
-                                                share.
-                                            </p>
-
-                                            <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                                                <div className="sm:col-span-4">
-                                                    <label htmlFor="username"
-                                                           className="block text-sm font-medium leading-6 text-gray-900">
-                                                        Username
-                                                    </label>
-                                                    <div className="mt-2">
-                                                        <div
-                                                            className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                                                            <span
-                                                                className="flex select-none items-center pl-3 text-gray-500 sm:text-sm">workcation.com/</span>
-                                                            <input
-                                                                type="text"
-                                                                name="username"
-                                                                id="username"
-                                                                autoComplete="username"
-                                                                className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                                                                placeholder="janesmith"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div className="col-span-full">
-                                                    <label htmlFor="about"
-                                                           className="block text-sm font-medium leading-6 text-gray-900">
-                                                        About
-                                                    </label>
-                                                    <div className="mt-2">
-                <textarea
-                    id="about"
-                    name="about"
-                    rows={3}
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    defaultValue={''}
-                />
-                                                    </div>
-                                                    <p className="mt-3 text-sm leading-6 text-gray-600">Write a few
-                                                        sentences about yourself.</p>
-                                                </div>
-
-                                                <div className="col-span-full">
-                                                    <label htmlFor="photo"
-                                                           className="block text-sm font-medium leading-6 text-gray-900">
-                                                        Photo
-                                                    </label>
-                                                    <div className="mt-2 flex items-center gap-x-3">
-                                                        <UserCircleIcon className="h-12 w-12 text-gray-300"
-                                                                        aria-hidden="true"/>
-                                                        <button
-                                                            type="button"
-                                                            className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                                                        >
-                                                            Change
-                                                        </button>
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
-                                        </div>*/}
-
+                                    {/*<div className="space-y-12">
                                         <div className="border-b border-gray-900/10 pb-12">
                                             <h2 className="text-base font-semibold leading-7 text-gray-900">Personal
                                                 Information</h2>
@@ -121,7 +52,10 @@ export default function AddUser(props: addUserPageProps) {
                                                             name="first-name"
                                                             id="first-name"
                                                             autoComplete="given-name"
-                                                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                                            className="block w-full rounded-md border-0 py-1.5
+                                                            text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300
+                                                            placeholder:text-gray-400 focus:ring-2 focus:ring-inset
+                                                            focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                                         />
                                                     </div>
                                                 </div>
@@ -242,6 +176,7 @@ export default function AddUser(props: addUserPageProps) {
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div className="col-span-full">
                                             <label htmlFor="cover-photo"
                                                    className="block text-sm font-medium leading-6 text-gray-900">
@@ -268,8 +203,12 @@ export default function AddUser(props: addUserPageProps) {
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
+                                    </div>*/}
+                                    <ModalForm title={props.title}
+                                               description={props.description}
+                                               data={props.data}
+                                               column={props.columns}/>
                                     <div className="mt-6 flex items-center justify-end gap-x-6">
                                         <button type="button" className="text-sm font-semibold leading-6 text-gray-900"
                                                 onClick={() => props.setModalShow(false)}>
@@ -303,6 +242,11 @@ export default function AddUser(props: addUserPageProps) {
 }
 
 interface addUserPageProps {
-    modalShow: boolean,
-    setModalShow: (value: boolean) => void
+    modalShow: boolean;
+    setModalShow: (value: boolean) => void;
+    title: string;
+    description: string;
+    columns: DynamicColumn[];
+    data?: object;
+
 }
