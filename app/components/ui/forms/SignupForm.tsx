@@ -3,6 +3,7 @@ import {registerUserAction} from "@/app/data/actions/auth-actions";
 import {useFormState} from "react-dom";
 import AuthLayout from "@/app/auth/layout";
 import Link from "next/link";
+import { setCookie } from 'cookies-next';
 
 export function SignupForm() {
     const INITIAL_STATE = {
@@ -12,9 +13,8 @@ export function SignupForm() {
     console.log(formState);
     return (
         <AuthLayout>
-            <form>
+            <form className={"mt-9 mb-3.5"}>
                 <div className="space-y-12">
-
                     <div className="border-b border-gray-900/10 pb-12">
                         <h2 className="text-base font-semibold leading-7 text-gray-900">Personal Information</h2>
                         <p className="mt-1 text-sm leading-6 text-gray-600">Use a permanent address where you can
