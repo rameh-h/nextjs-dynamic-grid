@@ -37,7 +37,7 @@ const Sidebar = (props: sidebarProps) => {
     return (
         <>
             <Transition show={props.sidebarOpen} as={Fragment}>
-                <Dialog as="div" className="relative z-50 lg:hidden" onClose={props.setSidebarOpen}>
+                <Dialog as="div" className="relative z-10 lg:hidden" onClose={props.setSidebarOpen}>
                     <TransitionChild
                         as={Fragment}
                         enter="transition-opacity ease-linear duration-300"
@@ -170,7 +170,7 @@ const Sidebar = (props: sidebarProps) => {
                 </Dialog>
             </Transition>
 
-            <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
+            <div className="hidden lg:fixed lg:inset-y-0 lg:z-10 lg:flex lg:w-72 lg:flex-col">
                 {/* Sidebar component, swap this element with another sidebar if you like */}
                 <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6 pb-4">
                     <div className="flex h-16 shrink-0 items-center">

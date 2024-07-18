@@ -1,35 +1,38 @@
 import {ColumnType} from "@/app/infrastructure/Enums";
-import {Input} from "@headlessui/react";
 import DatePicker from "react-datepicker";
 import React from "react";
 import {PhotoIcon} from "@heroicons/react/24/solid";
 import {DynamicColumn} from "@/app/components/model/dynamicColumn";
 import "react-datepicker/dist/react-datepicker.css";
+import Image from "next/image";
 
 const ModalForm = (props: modalFormProps) => {
 
-    function renderForm(column: DynamicColumn, data?: object) {
-
+    function renderForm(column: DynamicColumn, key: number) {
         switch (column.columnType) {
             case ColumnType.booleanType:
                 return (
-                    <div className={"sm:col-span-3"}>
+                    <div className={"sm:col-span-3"} key={key}>
                         <label htmlFor={column.alias}
                                className="block text-sm font-medium leading-6 text-gray-900">
                             {column.displayName}
                         </label>
                         <div className={"mt-2"}>
-                            <Input id={column.alias}
+                            <input id={column.alias}
+                                   name={column.alias}
                                    className={"h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"}
-                                   checked={Object(data)[column.alias]}
+                                   checked={Object(props.data)[column.alias]}
                                    type="checkbox"
+                                   value={Object(props.data)[column.alias]}
+                                   onChange={handleInputChange}
                             />
                         </div>
                     </div>
                 )
             case ColumnType.dateType:
+                const dateValue = Object(props.data)[column.alias];
                 return (
-                    <div className={"sm:col-span-3"}>
+                    <div className={"sm:col-span-3"} key={key}>
                         <label htmlFor={column.alias}
                                className="block text-sm font-medium leading-6 text-gray-900"
                         >
@@ -37,27 +40,25 @@ const ModalForm = (props: modalFormProps) => {
                         </label>
                         <div className={"mt-2"}>
                             <DatePicker id={column.alias}
+                                        name={column.alias}
                                         className={"block w-full rounded-md border-0 py-1.5" +
                                             "text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300" +
                                             "placeholder:text-gray-400 focus:ring-2 focus:ring-inset" +
                                             "focus:ring-indigo-600 sm:text-sm sm:leading-6"}
                                         required={column.isRequired}
                                         showIcon
-                                        showPopperArrow
-                                        selected={data !== undefined ? new Date(Object(data)[column.alias]) : undefined}
+                                        onChange={(e) => {
+                                            if (e)
+                                                handleDateChange(column.alias, e);
+                                        }}
+                                        selected={dateValue != undefined ? new Date(dateValue) : null}
                             />
-                            {/*<Input id={row.column.alias}
-                                   className={"h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"}
-                                   required={Object(row.data)[row.column.alias]}
-                                   type={"date"}
-
-                            />*/}
                         </div>
                     </div>
                 )
             case ColumnType.imageType:
                 return (
-                    <div className={"col-span-full"}>
+                    <div className={"col-span-full"} key={key}>
                         <label htmlFor={column.alias}
                                className="block text-sm font-medium leading-6 text-gray-900">
                             {column.displayName}
@@ -65,8 +66,18 @@ const ModalForm = (props: modalFormProps) => {
                         <div
                             className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                             <div className="text-center">
-                                <PhotoIcon className="mx-auto h-12 w-12 text-gray-300"
-                                           aria-hidden="true"/>
+                                {(() => {
+                                    const image = Object(props.data)[column.alias] ?? undefined;
+                                    if (image !== undefined) {
+                                        return <Image src={image}
+                                                      alt={column.displayName}
+                                                      width={300} height={300}
+                                                      className={"mx-auto h-12 w-12"}/>
+                                    } else {
+                                        return <PhotoIcon className="mx-auto h-12 w-12 text-gray-300"
+                                                          aria-hidden="true"/>
+                                    }
+                                })()}
                                 <div className="mt-4 flex text-sm leading-6 text-gray-600">
                                     <label
                                         htmlFor="file-upload"
@@ -87,27 +98,38 @@ const ModalForm = (props: modalFormProps) => {
                 )
             default:
                 return (
-                    <div className="sm:col-span-3">
+                    <div className="sm:col-span-3" key={key}>
                         <label htmlFor={column.alias}
                                className="block text-sm font-medium leading-6 text-gray-900">
                             {column.displayName}
                         </label>
                         <div className={"mt-2"}>
-                            <input value={Object(data)[column.alias] ?? ""}
-                                   required={column.isRequired}
-                                   className={"block w-full rounded-md border-0 py-1.5" +
-                                       "text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300" +
-                                       "placeholder:text-gray-400 focus:ring-2 focus:ring-inset" +
-                                       "focus:ring-indigo-600 sm:text-sm sm:leading-6"}
-                                   id={column.alias}
-                                   type="text"
-                                   name={column.alias}
+                            <input
+                                value={Object(props.data)[column.alias] ?? ""}
+                                required={column.isRequired}
+                                className={"block w-full rounded-md border-0 py-1.5" +
+                                    "text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300" +
+                                    "placeholder:text-gray-400 focus:ring-2 focus:ring-inset" +
+                                    "focus:ring-indigo-600 sm:text-sm sm:leading-6"}
+                                id={column.alias}
+                                type="text"
+                                name={column.alias}
+                                onChange={handleInputChange}
                             />
                         </div>
                     </div>
                 )
         }
     }
+
+    function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
+        const {name, value, checked} = e.target;
+        props.handleChange(name, e.target.type === 'checkbox' ? checked : value);
+    }
+
+    const handleDateChange = (filed: string, date: Date) => {
+        props.handleChange(filed, date);
+    };
 
     return (
         <div className="space-y-12">
@@ -118,8 +140,8 @@ const ModalForm = (props: modalFormProps) => {
                 <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     {props.column
                         .filter(x => !x.isHidden)
-                        .map((row) => (
-                            renderForm(row, props.data)
+                        .map((row, index) => (
+                            renderForm(row, index)
                         ))}
                 </div>
 
@@ -132,6 +154,7 @@ interface modalFormProps {
     title: string;
     description: string;
     column: DynamicColumn[];
+    handleChange: (field: string, value: string | Date | boolean) => void;
     data?: object;
 }
 

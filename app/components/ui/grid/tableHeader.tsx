@@ -1,5 +1,6 @@
 import React from 'react';
 import {ColumnModel} from "@/app/components/ui/grid/model/columnModel";
+import {GridOperationModel} from "@/app/components/ui/grid/model/gridOperation.model";
 
 const TableHeader = (props: tableHeaderProps) => {
     return (
@@ -21,11 +22,6 @@ const TableHeader = (props: tableHeaderProps) => {
 
 interface tableHeaderProps {
     header: ColumnModel[];
-    gridOperations?: {
-        title: string | "Remove" | "Edit";
-        onClick: Function;
-        icon?: string;
-    }[]
 }
 
 export default TableHeader;

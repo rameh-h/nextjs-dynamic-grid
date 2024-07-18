@@ -1,16 +1,10 @@
 import {ColumnModel} from "@/app/components/ui/grid/model/columnModel";
+import {GridOperationModel} from "@/app/components/ui/grid/model/gridOperation.model";
+import {GridHeaderModel} from "@/app/components/ui/grid/model/gridHeader.model";
 
 export interface GridModel {
     columns: ColumnModel[];
     data: any;
-    gridHeader: {
-        title: string;
-        description: string;
-        button: { title: string, onClick: Function }
-    };
-    gridOperations?: {
-        title: string | "Remove" | "Edit";
-        onClick: Function;
-        icon?: string;
-    }[]
+    gridHeader: GridHeaderModel;
+    gridOperations?: GridOperationModel[]
 }
