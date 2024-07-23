@@ -153,7 +153,7 @@ const Sidebar = (props: sidebarProps) => {
                                                 </ul>
                                             </li>*/}
                                             <li className="mt-auto">
-                                                <a
+                                                <Link
                                                     href="#"
                                                     className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600"
                                                 >
@@ -162,7 +162,7 @@ const Sidebar = (props: sidebarProps) => {
                                                         aria-hidden="true"
                                                     />
                                                     Settings
-                                                </a>
+                                                </Link>
                                             </li>
                                         </ul>
                                     </nav>
@@ -191,7 +191,7 @@ const Sidebar = (props: sidebarProps) => {
                                 <ul role="list" className="-mx-2 space-y-1">
                                     {navigation.map((item) => (
                                         <li key={item.name}>
-                                            <a
+                                            <Link
                                                 href={item.href}
                                                 className={classNames(
                                                     pathname == item.href
@@ -210,7 +210,7 @@ const Sidebar = (props: sidebarProps) => {
                                                     aria-hidden="true"
                                                 />
                                                 {item.name}
-                                            </a>
+                                            </Link>
                                         </li>
                                     ))}
                                 </ul>
@@ -246,7 +246,7 @@ const Sidebar = (props: sidebarProps) => {
                                 </ul>
                             </li>*/}
                             <li className="mt-auto">
-                                <a
+                                <Link
                                     href="#"
                                     className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600"
                                 >
@@ -255,7 +255,7 @@ const Sidebar = (props: sidebarProps) => {
                                         aria-hidden="true"
                                     />
                                     Settings
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </nav>
