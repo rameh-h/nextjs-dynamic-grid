@@ -22,10 +22,10 @@ function classNames(...classes: string[]) {
 const navigation = [
     {name: 'Dashboard', href: '/', icon: HomeIcon},
     {name: 'Syncfusion Grid', href: '/dynamic-grid-syncfusion', icon: UsersIcon},
-    {name: 'Projects', href: '/dynamic-grid', icon: FolderIcon},
-    {name: 'Calendar', href: '#', icon: CalendarIcon},
+    {name: 'Simple Grid', href: '/dynamic-grid', icon: FolderIcon},
+/*    {name: 'Calendar', href: '#', icon: CalendarIcon},
     {name: 'Documents', href: '#', icon: DocumentDuplicateIcon},
-    {name: 'Reports', href: '#', icon: ChartPieIcon},
+    {name: 'Reports', href: '#', icon: ChartPieIcon},*/
 ]
 const teams = [
     {id: 1, name: 'Heroicons', href: '#', initial: 'H'},
