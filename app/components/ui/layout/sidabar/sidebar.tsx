@@ -1,7 +1,6 @@
 "use client"
 import {Fragment} from 'react';
 import {Dialog, DialogPanel, Transition, TransitionChild} from '@headlessui/react';
-
 import {
     CalendarIcon,
     ChartPieIcon,
@@ -13,27 +12,29 @@ import {
     XMarkIcon,
 } from '@heroicons/react/24/outline'
 import Image from "next/image";
+import Link from "next/link";
+import {usePathname} from "next/navigation";
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
 
 const navigation = [
-    {name: 'Dashboard', href: '/', icon: HomeIcon, current: true},
-    {name: 'Team', href: '#', icon: UsersIcon, current: false},
-    {name: 'Projects', href: '#', icon: FolderIcon, current: false},
-    {name: 'Calendar', href: '#', icon: CalendarIcon, current: false},
-    {name: 'Documents', href: '#', icon: DocumentDuplicateIcon, current: false},
-    {name: 'Reports', href: '#', icon: ChartPieIcon, current: false},
+    {name: 'Dashboard', href: '/', icon: HomeIcon},
+    {name: 'Syncfusion Grid', href: '/dynamic-grid-syncfusion', icon: UsersIcon},
+    {name: 'Projects', href: '/dynamic-grid', icon: FolderIcon},
+    {name: 'Calendar', href: '#', icon: CalendarIcon},
+    {name: 'Documents', href: '#', icon: DocumentDuplicateIcon},
+    {name: 'Reports', href: '#', icon: ChartPieIcon},
 ]
 const teams = [
-    {id: 1, name: 'Heroicons', href: '#', initial: 'H', current: false},
-    {id: 2, name: 'Tailwind Labs', href: '#', initial: 'T', current: false},
-    {id: 3, name: 'Workcation', href: '#', initial: 'W', current: false},
+    {id: 1, name: 'Heroicons', href: '#', initial: 'H'},
+    {id: 2, name: 'Tailwind Labs', href: '#', initial: 'T'},
+    {id: 3, name: 'Workcation', href: '#', initial: 'W'},
 ]
 
 const Sidebar = (props: sidebarProps) => {
-
+    const pathname = usePathname();
     return (
         <>
             <Transition show={props.sidebarOpen} as={Fragment}>
@@ -95,10 +96,10 @@ const Sidebar = (props: sidebarProps) => {
                                                 <ul role="list" className="-mx-2 space-y-1">
                                                     {navigation.map((item) => (
                                                         <li key={item.name}>
-                                                            <a
+                                                            <Link
                                                                 href={item.href}
                                                                 className={classNames(
-                                                                    item.current
+                                                                    pathname == item.href
                                                                         ? 'bg-gray-50 text-indigo-600'
                                                                         : 'text-gray-700 hover:text-indigo-600 hover:bg-gray-50',
                                                                     'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
@@ -106,13 +107,15 @@ const Sidebar = (props: sidebarProps) => {
                                                             >
                                                                 <item.icon
                                                                     className={classNames(
-                                                                        item.current ? 'text-indigo-600' : 'text-gray-400 group-hover:text-indigo-600',
+                                                                        pathname == item.href ?
+                                                                            'text-indigo-600' :
+                                                                            'text-gray-400 group-hover:text-indigo-600',
                                                                         'h-6 w-6 shrink-0'
                                                                     )}
                                                                     aria-hidden="true"
                                                                 />
                                                                 {item.name}
-                                                            </a>
+                                                            </Link>
                                                         </li>
                                                     ))}
                                                 </ul>
@@ -191,7 +194,7 @@ const Sidebar = (props: sidebarProps) => {
                                             <a
                                                 href={item.href}
                                                 className={classNames(
-                                                    item.current
+                                                    pathname == item.href
                                                         ? 'bg-gray-50 text-indigo-600'
                                                         : 'text-gray-700 hover:text-indigo-600 hover:bg-gray-50',
                                                     'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
@@ -199,7 +202,9 @@ const Sidebar = (props: sidebarProps) => {
                                             >
                                                 <item.icon
                                                     className={classNames(
-                                                        item.current ? 'text-indigo-600' : 'text-gray-400 group-hover:text-indigo-600',
+                                                        pathname == item.href ?
+                                                            'text-indigo-600'
+                                                            : 'text-gray-400 group-hover:text-indigo-600',
                                                         'h-6 w-6 shrink-0'
                                                     )}
                                                     aria-hidden="true"

@@ -2,7 +2,7 @@
 
 import React, {useState, useEffect, Fragment} from 'react';
 import {User} from "@/app/components/model/user.model";
-import getColumns from "@/app/api/columns/columns.api";
+import {getColumns} from "@/app/api/columns/columns.api";
 import {getUserById, getUsers, postUser, putUser, removeUserById} from "@/app/api/users/users.api";
 import GridComponent from "@/app/components/ui/grid/gridComponent";
 import {DynamicColumn} from "@/app/components/model/dynamicColumn";
@@ -10,6 +10,9 @@ import {ColumnModel} from "@/app/components/ui/grid/model/columnModel";
 import ConfirmDialog from "@/app/components/ui/dialog/confirmDialog";
 import DynamicForm from "@/app/components/ui/forms/DynamicForm";
 import Toast from "@/app/components/ui/toas/toast";
+import AppLayout from "@/app/layout/appLayout";
+import RootLayout from "@/app/layout";
+import {usePathname} from "next/navigation";
 
 function GridPage() {
     const [users, setUsers] = useState<User[]>([]);
@@ -156,6 +159,9 @@ function GridPage() {
         });
     }
 
+    const path = usePathname();
+    const Layout = path == "/" ? Fragment : AppLayout;
+
     if (isLoading)
         return <div>Loading...</div>;
     if (!columns && !users)
@@ -164,7 +170,7 @@ function GridPage() {
         "A list of all the users in your account including their name, title, email and job title.";
 
     return (
-        <>
+        <Layout>
             <GridComponent columns={mapColumns(columns)} data={users}
                            gridOperations={[
                                {
@@ -208,7 +214,7 @@ function GridPage() {
                    mode={toastMode}
                    title={toastObj.title}
                    description={toastObj.description}/>
-        </>
+        </Layout>
     )
 }
 

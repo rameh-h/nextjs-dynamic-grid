@@ -4,6 +4,7 @@ import Sidebar from "@/app/components/ui/layout/sidabar/sidebar";
 import Header from "@/app/components/ui/layout/header/header";
 import {checkLoginCookie} from "@/app/api/auth/cookie";
 import {useRouter} from "next/navigation";
+import { registerLicense } from '@syncfusion/ej2-base';
 
 export default function AppLayout({children}: { children: React.ReactNode }) {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -17,6 +18,8 @@ export default function AppLayout({children}: { children: React.ReactNode }) {
         else
             setIsAuthenticated(true);
     }, []);
+
+    registerLicense("NjA1NkAzMjM2MkUzMTJFMzliSzVTQlJKN0NLVzNVOFVKSlErcVEzYW9PSkZ2dUhicHliVjkrMncxdHpRPQ==");
 
     if (!isAuthenticated)
         return (<div className={"text-center mt-11 font-bold text-xl"}>Loading...</div>);

@@ -10,7 +10,6 @@ export function SignupForm() {
         data: null,
     };
     const [formState, formAction] = useFormState(registerUserAction, INITIAL_STATE);
-    console.log(formState);
     return (
         <AuthLayout>
             <form className={"mt-9 mb-3.5"}>

@@ -1,7 +1,6 @@
 import {api} from "@/app/infrastructure/Constant";
 
-function getColumns() {
+export function getColumns() {
     return fetch(api.path + "/columns");
 }
 
-export default getColumns ;
