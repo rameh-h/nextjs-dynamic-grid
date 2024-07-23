@@ -1,4 +1,3 @@
-import GridPage from "@/app/dynamic-grid/page";
 import RootLayout from "@/app/layout";
 import AppLayout from "@/app/layout/appLayout";
 import Link from "next/link";

@@ -2,10 +2,7 @@
 import {Fragment} from 'react';
 import {Dialog, DialogPanel, Transition, TransitionChild} from '@headlessui/react';
 import {
-    CalendarIcon,
-    ChartPieIcon,
     Cog6ToothIcon,
-    DocumentDuplicateIcon,
     FolderIcon,
     HomeIcon,
     UsersIcon,
@@ -27,11 +24,11 @@ const navigation = [
     {name: 'Documents', href: '#', icon: DocumentDuplicateIcon},
     {name: 'Reports', href: '#', icon: ChartPieIcon},*/
 ]
-const teams = [
+/*const teams = [
     {id: 1, name: 'Heroicons', href: '#', initial: 'H'},
     {id: 2, name: 'Tailwind Labs', href: '#', initial: 'T'},
     {id: 3, name: 'Workcation', href: '#', initial: 'W'},
-]
+]*/
 
 const Sidebar = (props: sidebarProps) => {
     const pathname = usePathname();
