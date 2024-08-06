@@ -191,7 +191,8 @@ function GridPage() {
                                        setDialogMode("SAVE");
                                    }
                                }
-                           }}/>
+                           }}
+            />
             <DynamicForm modalShow={modalShow}
                          setModalShow={setModalShow}
                          title={"Add/Edit User"}

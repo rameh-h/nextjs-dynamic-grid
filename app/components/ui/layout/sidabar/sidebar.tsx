@@ -7,6 +7,7 @@ import {
     HomeIcon,
     UsersIcon,
     XMarkIcon,
+    ChartBarIcon
 } from '@heroicons/react/24/outline'
 import Image from "next/image";
 import Link from "next/link";
@@ -20,6 +21,7 @@ const navigation = [
     {name: 'Dashboard', href: '/', icon: HomeIcon},
     {name: 'Syncfusion Grid', href: '/dynamic-grid-syncfusion', icon: UsersIcon},
     {name: 'Simple Grid', href: '/dynamic-grid', icon: FolderIcon},
+    {name: 'Sample Chart', href: '/sample-chart', icon: ChartBarIcon},
 /*    {name: 'Calendar', href: '#', icon: CalendarIcon},
     {name: 'Documents', href: '#', icon: DocumentDuplicateIcon},
     {name: 'Reports', href: '#', icon: ChartPieIcon},*/

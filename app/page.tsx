@@ -17,6 +17,11 @@ export default function Page() {
                             <h2 className="text-2xl font-bold text-gray-800">Syncfusion Dynamic Grid</h2>
                         </Link>
                     </div>
+                    <div className="m-4 max-w-md overflow-hidden bg-white shadow-lg">
+                        <Link href={"/sample-chart"} className="p-6 block">
+                            <h2 className="text-2xl font-bold text-gray-800">Sample Chart</h2>
+                        </Link>
+                    </div>
                 </div>
             </AppLayout>
         </RootLayout>
